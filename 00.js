@@ -21,11 +21,6 @@ function Funcionario(nome, cargo, salario, tempo) {
     };
 }
 
-// Configurando a herança de Funcionario para Pessoa Leia o README para saber mais
-Funcionario.prototype = Object.create(Pessoa.prototype);
-Funcionario.prototype.constructor = Funcionario;
-
-
 function Estagiario(nome, tempo) {
     Funcionario.call(this, nome, "Estagiário", 2000, tempo);
     
@@ -35,8 +30,6 @@ function Estagiario(nome, tempo) {
         console.log(`Os estágiarios receberam um aumento de 5%! Novo salário base: R$${this.getSalario().toFixed(2)}`);
     };
 }
-Estagiario.prototype = Object.create(Funcionario.prototype);
-Estagiario.prototype.constructor = Estagiario;
 
 function Junior(nome, tempo) {
     Funcionario.call(this, nome, "Júnior", 3200, tempo);
@@ -47,8 +40,7 @@ function Junior(nome, tempo) {
         console.log(`Os Juniores receberam um aumento de 7%! Novo salário base: R$${this.getSalario().toFixed(2)}`);
     };
 }
-Junior.prototype = Object.create(Funcionario.prototype);
-Junior.prototype.constructor = Junior;
+
 
 function Analista(nome, tempo) {
     Funcionario.call(this, nome, "Analista", 4900, tempo);
@@ -59,8 +51,6 @@ function Analista(nome, tempo) {
         console.log(`Os Analistas receberam um aumento de 7%! Novo salário base: R$${this.getSalario().toFixed(2)}`);
     };
 }
-Analista.prototype = Object.create(Funcionario.prototype);
-Analista.prototype.constructor = Analista;
 
 function Gerente(nome, tempo) {
     Funcionario.call(this, nome, "Gerente", 15000, tempo);
@@ -71,9 +61,6 @@ function Gerente(nome, tempo) {
         console.log(`Os Gerentes receberam um aumento de 10%! Novo salário base: R$${this.getSalario().toFixed(2)}`);
     };
 }
-Gerente.prototype = Object.create(Funcionario.prototype);
-Gerente.prototype.constructor = Gerente;
-
 
 //instâncias dos funcionário
 const funcionario0 = new Estagiario("Pedro", "08/12/2024");
